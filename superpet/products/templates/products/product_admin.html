@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+{% block content%}
+
+<a class="btn btn-success" href="{% url 'create-view'%}" role="button">Create Product</a>
+<hr>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">product Name</th>
+        <th scope="col">Update product</th>
+        <th scope="col">delete Product</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for product in object_list%}
+    
+      <tr>
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.product_name}}</td>
+        <td><a class="btn btn-success" href="{% url 'update-product' product.id%}" role="button">Update</a></td>
+        <td><a class="btn btn-danger" href="{%  url 'delete-product' product.id%}" role="button">delete</a></td>
+      </tr>
+
+      {% endfor %}
+     
+    </tbody>
+  </table>
+
+
+{% endblock%}

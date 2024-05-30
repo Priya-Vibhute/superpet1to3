@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+
+
+{%block content%}
+<div class="container border border-dark p-3 m-3">
+{% if message%}
+  <div class="alert alert-primary" role="alert">
+         {{message}}
+  </div>
+{%endif%}
+<h4 class="bg-dark text-white p-3">Register</h4>
+<form method="post" action="{% url 'register'%}">
+
+  {% csrf_token %}
+
+
+              {% for field in form %}
+
+
+                       {{field.label_tag}}
+                       {{field}}
+                       <div id="emailHelp" class="form-text"> 
+                        {{field.help_text}}
+                       </div>
+           
+               {%endfor%}
+
+               <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+</div>
+
+{%endblock%}

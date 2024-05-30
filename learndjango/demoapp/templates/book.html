@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="{% url 'book'%}" method="post">
+
+         {%csrf_token%}
+
+
+        <label for="">Enter Book name</label>
+        <input type="text" name="bookname">
+
+        <br>
+
+        <label for="">Enter book price</label>
+        <input type="number" name="bookprice" id="">
+
+
+        <button type="submit">Click to add data</button>
+
+
+
+
+    </form>
+
+{%if bookname and bookprice%}
+    <h3>Bookname is    {{bookname}}</h3>
+    <h3> Book price is {{bookprice}}</h3>
+{%endif%}
+    
+</body>
+</html>
