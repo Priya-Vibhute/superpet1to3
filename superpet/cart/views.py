@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url="/login")
 def add_to_cart(request,productId):
+     print("added from gihub")
 
      currentUser=request.user
      cart,created=Cart.objects.get_or_create(user=currentUser)
